@@ -1,0 +1,42 @@
+{
+	"name": "df_Demo",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "dsExcelDemo",
+						"type": "DatasetReference"
+					},
+					"name": "ExcelFiles"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          {#SlNo} as string,",
+				"          {Bill Type} as string,",
+				"          IPOP as string,",
+				"          {Bill No} as string,",
+				"          {Bill Date} as string,",
+				"          {Bill Amount} as string,",
+				"          Discount as string,",
+				"          {Net Amount} as string,",
+				"          {Paid Amount} as string,",
+				"          {Balance Amount} as string,",
+				"          {Last Pay Mode} as string,",
+				"          User as string,",
+				"          MRN as string,",
+				"          AdmID as string,",
+				"          Category as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     wildcardPaths:['*.xlsx']) ~> ExcelFiles"
+			]
+		}
+	}
+}
