@@ -12,7 +12,15 @@
 					"name": "ExcelFiles"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "dsSQLDemo",
+						"type": "DatasetReference"
+					},
+					"name": "dsSQLDemoDestination"
+				}
+			],
 			"transformations": [],
 			"scriptLines": [
 				"source(output(",
@@ -35,7 +43,17 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
-				"     wildcardPaths:['*.xlsx']) ~> ExcelFiles"
+				"     wildcardPaths:['*.xlsx']) ~> ExcelFiles",
+				"ExcelFiles sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> dsSQLDemoDestination"
 			]
 		}
 	}

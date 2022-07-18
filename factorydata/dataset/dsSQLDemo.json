@@ -1,0 +1,16 @@
+{
+	"name": "dsSQLDemo",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_AzureSQLDB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "TempTable"
+		}
+	}
+}
