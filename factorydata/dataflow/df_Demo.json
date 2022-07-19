@@ -43,6 +43,7 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
+				"     moveFiles: ['','loadedfiles'],",
 				"     rowUrlColumn: 'Filename',",
 				"     wildcardPaths:['*.xlsx']) ~> ExcelFiles",
 				"ExcelFiles sink(allowSchemaDrift: true,",
